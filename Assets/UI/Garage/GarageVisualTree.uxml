@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="header" src="project://database/Assets/UI/header.uxml?fileID=9197481963319205126&amp;guid=86cb56e43255b3447a12267117b0cc31&amp;type=3#header" />
+    <Style src="project://database/Assets/UI/Header.uss?fileID=7433441132597879392&amp;guid=d836fcdb5f22f9c4685a894dd0923b89&amp;type=3#Header" />
+    <Style src="project://database/Assets/UI/Garage/GarageStyles.uss?fileID=7433441132597879392&amp;guid=62471a47a96ec9641906a8469f3da5ac&amp;type=3#GarageStyles" />
+    <engine:VisualElement name="body" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Garage/Background.png?fileID=2800000&amp;guid=b12d3ba469c271547a287d8ca6b70178&amp;type=3#Background&quot;); position: absolute; width: 100%; height: 100%;" />
+    <engine:Instance template="header" name="header" />
+</engine:UXML>
