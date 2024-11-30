@@ -1,0 +1,95 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 110px;
+    align-items: center;
+    padding: 0 20px;
+    background-image: url("project://database/Assets/Sprites/Garage/Header_Background.png?fileID=2800000&guid=cdedb95e851b00e42b66cb0e6cbdbf93&type=3#Header_Background");
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.header .header-container {
+    height: 100%;
+    flex-grow: 0;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0 0 0 0;
+}
+
+.header-container.title-container {
+    width: 400px;
+    padding-left: 20px;
+}
+
+.title-container > .unity-button {
+    background-image: url("project://database/Assets/Sprites/Garage/Vector/v_back-button.svg?fileID=7388822144124034973&guid=eaebe3c17a21ace489232825b108e257&type=3#v_back-button");
+    background-color: rgba(188, 188, 188, 0);
+    width: 50px;
+    height: 50px;
+    border-width: 0;
+}
+
+.title-container > .title {
+    color: rgb(0, 255, 216);
+    font-size: 54px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+    -unity-font-style: normal;
+}
+
+.header-container.resources-container {
+    justify-content: flex-end;
+    width: 600px;
+    padding-left: 25px;
+}
+
+.resources-container > .ticket-container {
+    flex-basis: 300px;
+    padding-left: 50px;
+    padding-right: 25px;
+}
+
+.resources-container > .coins-container {
+    flex-basis: 300px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.resources-container Label {
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    border-radius: 25px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+}
+
+.resources-container #img-icon {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    margin-left: -30px;
+}
+
+.resources-container > .home-container {
+    flex-basis: 200px;
+    justify-content: center;
+    align-self: center;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.home-button {
+    background-image: url("project://database/Assets/Sprites/Garage/Vector/v_home.svg?fileID=7388822144124034973&guid=f3d233e3621975e45a82ba4a93f73a55&type=3#v_home");
+    width: 60px;
+    height: 50px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}

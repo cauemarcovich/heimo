@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="header" class="header">
+        <engine:VisualElement name="title-container" class="title-container header-container">
+            <engine:Button text="&#10;" name="btn-back" />
+            <engine:Label text="GARAGE" name="lbl-title" class="title" style="margin-left: 40px; font-size: 60px; letter-spacing: -2px; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(0, 0, 0);" />
+        </engine:VisualElement>
+        <engine:VisualElement name="resources-container" class="resources-container header-container">
+            <engine:VisualElement name="ticket-container" class="header-container ticket-container">
+                <engine:Label text="30" name="lbl-value" />
+                <engine:VisualElement name="img-icon" style="background-image: url(&quot;project://database/Assets/Sprites/Garage/Vector/v-ticket.svg?fileID=7388822144124034973&amp;guid=ebac61624c6e6ec40bbf5a5af16bd43f&amp;type=3#v-ticket&quot;);" />
+            </engine:VisualElement>
+            <engine:VisualElement name="coins-container" class="header-container coins-container">
+                <engine:Label text="30" name="lbl-value" />
+                <engine:VisualElement name="img-icon" style="background-image: url(&quot;project://database/Assets/Sprites/Garage/Vector/v_golden-coin.svg?fileID=7388822144124034973&amp;guid=f75ec81d1f901eb4c8a0bf29d9ff870d&amp;type=3#v_golden-coin&quot;);" />
+            </engine:VisualElement>
+            <engine:VisualElement name="home-container" class="header-container home-container">
+                <engine:Button text="&#10;" name="btn-home" class="home-button" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
