@@ -24,7 +24,6 @@
     padding: 32px 35px 32px 35px;
     flex-basis: 210px;
     align-content: auto;
-    background-color: rgba(241, 224, 158, 0);
 }
 
 .garage-tab {
@@ -35,7 +34,7 @@
     border-color: rgb(0, 0, 0);
     border-width: 4px;
     border-radius: 30px;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .garage-tab__icon {
@@ -80,27 +79,44 @@
     translate: 12px -15px;
 }
 
-
-#showcase-container {
+.showcase-container {
     flex-grow: 0;
     flex-basis: 750px;
-    background-color: rgb(236, 161, 161);
+    background-color: rgba(236, 161, 161, 0);
+}
+
+.showcase-container .preview {
+    flex-grow: 0;
+    flex-basis: 800px;
+    background-image: url("project://database/Assets/Sprites/Garage/Showcase.png?fileID=2800000&guid=7f5cf40c0e203884cbf8f933b41a0bf0&type=3#Showcase");
+    -unity-background-scale-mode: stretch-to-fill;
 }
 
 .preview-type-container {
     flex-grow: 0;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
     flex-basis: 300px;
+    justify-content: center;
+    padding-bottom: 50px;
 }
 
-.preview-type-container > VisualElement {
-    flex-basis: 150px;
-    width: 150px;
-    height: 150px;
-    background-color: rgb(177, 224, 113);
-    border-radius: 80px;
+.garage-tab.preview-type {
+    border-radius: 100px;
+    margin: 0 15px;
+    flex-basis: 175px;
+    width: 175px;
+    height: 175px;
 }
 
+.preview-type > .garage-tab__icon {
+    margin: 25px 25px 0 25px;
+}
 
+#preview-type-driver > .garage-tab__icon {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.4);
+}
 
 #content-container {
     background-color: rgb(170, 255, 150);
