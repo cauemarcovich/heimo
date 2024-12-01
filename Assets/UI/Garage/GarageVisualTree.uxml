@@ -9,19 +9,11 @@
             <UIToolkit.CustomControls.CustomTab title="Bumper" image="project://database/Assets/Sprites/Garage/Vector/v_bumper.svg?fileID=7388822144124034973&amp;guid=d7fa4ddd9b14508459b7005940423a15&amp;type=3#v_bumper" />
             <UIToolkit.CustomControls.CustomTab title="Spoiler" image="project://database/Assets/Sprites/Garage/Vector/v_spoiler.svg?fileID=7388822144124034973&amp;guid=27bd53182865bfd4e80cd7da38e2278e&amp;type=3#v_spoiler" />
         </engine:VisualElement>
-        <engine:VisualElement name="showcase-container">
-            <engine:VisualElement name="car-preview" style="flex-grow: 1;" />
-            <engine:VisualElement name="preview-type-container" class="preview-type-container" style="flex-direction: row; justify-content: center; width: 201px; align-items: center; align-self: center;">
-                <engine:VisualElement name="preview-type-kart" class="garage-tab">
-                    <engine:VisualElement name="icon" style="flex-grow: 1;" />
-                    <engine:Label name="tab-text" />
-                    <engine:Label name="alert" />
-                </engine:VisualElement>
-                <engine:VisualElement name="preview-type-driver" class="garage-tab">
-                    <engine:VisualElement name="icon" style="flex-grow: 1;" />
-                    <engine:Label name="tab-text" />
-                    <engine:Label name="alert" />
-                </engine:VisualElement>
+        <engine:VisualElement name="showcase-container" class="showcase-container body-container">
+            <engine:VisualElement name="car-preview" class="preview" />
+            <engine:VisualElement name="preview-type-container" class="preview-type-container">
+                <UIToolkit.CustomControls.CustomTab name="preview-type-kart" image="project://database/Assets/Sprites/Garage/Vector/v_skins.svg?fileID=7388822144124034973&amp;guid=7777410ccd2496146af1ca2d6c667254&amp;type=3#v_skins" title="Kart" class="preview-type" />
+                <UIToolkit.CustomControls.CustomTab name="preview-type-driver" image="project://database/Assets/Sprites/Garage/Vector/driver.svg?fileID=7388822144124034973&amp;guid=42bc2649dcbedf2409d9bfd243a0cec2&amp;type=3#driver" title="Driver" enabled="true" class="preview-type" style="background-color: rgb(0, 0, 0);" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="content-container">
