@@ -1,19 +1,13 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:Template name="header" src="project://database/Assets/UI/header.uxml?fileID=9197481963319205126&amp;guid=86cb56e43255b3447a12267117b0cc31&amp;type=3#header" />
-    <Style src="project://database/Assets/UI/Header.uss?fileID=7433441132597879392&amp;guid=d836fcdb5f22f9c4685a894dd0923b89&amp;type=3#Header" />
     <Style src="project://database/Assets/UI/Garage/GarageStyles.uss?fileID=7433441132597879392&amp;guid=62471a47a96ec9641906a8469f3da5ac&amp;type=3#GarageStyles" />
     <engine:VisualElement name="body" class="body" style="align-items: stretch; align-self: center; display: flex;">
-        <engine:VisualElement name="tabs-container" style="flex-direction: column; align-self: auto; justify-content: space-between; align-items: center; padding-top: 40px; padding-bottom: 40px; padding-right: 0; padding-left: 0;">
-            <engine:VisualElement name="tab" class="garage-tab">
-                <engine:VisualElement name="icon" style="flex-grow: 1;" />
-                <engine:Label text="Label" name="tab-text" style="-unity-text-align: middle-center;" />
-                <engine:Label text="1" name="alert" style="position: absolute; align-self: flex-end; background-color: rgb(255, 0, 0); width: 30px; height: 30px; -unity-text-align: middle-center; border-top-left-radius: 24px; border-top-right-radius: 24px; border-bottom-right-radius: 24px; border-bottom-left-radius: 24px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; top: 1px; right: 1px; translate: 15px -15px;" />
-            </engine:VisualElement>
-            <engine:VisualElement name="tab" class="garage-tab" />
-            <engine:VisualElement name="tab" class="garage-tab" />
-            <engine:VisualElement name="tab" class="garage-tab" />
-            <engine:VisualElement name="tab" class="garage-tab" />
-            <engine:VisualElement name="tab" class="garage-tab" />
+        <engine:VisualElement name="tabs-container" class="tabs-container body-container">
+            <UIToolkit.CustomControls.CustomTab title="Skins" image="project://database/Assets/Sprites/Garage/Vector/v_skins.svg?fileID=7388822144124034973&amp;guid=7777410ccd2496146af1ca2d6c667254&amp;type=3#v_skins" />
+            <UIToolkit.CustomControls.CustomTab title="Color" image="project://database/Assets/Sprites/Garage/Vector/v_color.svg?fileID=7388822144124034973&amp;guid=f61000dcc01b92b4682e3dbfd99f8e2c&amp;type=3#v_color" />
+            <UIToolkit.CustomControls.CustomTab title="Wheels" image="project://database/Assets/Sprites/Garage/Vector/v_wheels.svg?fileID=7388822144124034973&amp;guid=1a6221c58a9c20d44bef305680eb1db8&amp;type=3#v_wheels" />
+            <UIToolkit.CustomControls.CustomTab title="Acessories" image="project://database/Assets/Sprites/Garage/Vector/v_acessories.svg?fileID=7388822144124034973&amp;guid=6e9fc2700a50ba94589b8137d1d67e8e&amp;type=3#v_acessories" />
+            <UIToolkit.CustomControls.CustomTab title="Bumper" image="project://database/Assets/Sprites/Garage/Vector/v_bumper.svg?fileID=7388822144124034973&amp;guid=d7fa4ddd9b14508459b7005940423a15&amp;type=3#v_bumper" />
+            <UIToolkit.CustomControls.CustomTab title="Spoiler" image="project://database/Assets/Sprites/Garage/Vector/v_spoiler.svg?fileID=7388822144124034973&amp;guid=27bd53182865bfd4e80cd7da38e2278e&amp;type=3#v_spoiler" />
         </engine:VisualElement>
         <engine:VisualElement name="showcase-container">
             <engine:VisualElement name="car-preview" style="flex-grow: 1;" />
@@ -48,5 +42,4 @@
             </engine:ScrollView>
         </engine:VisualElement>
     </engine:VisualElement>
-    <engine:Instance template="header" name="header" style="display: flex;" />
 </engine:UXML>
