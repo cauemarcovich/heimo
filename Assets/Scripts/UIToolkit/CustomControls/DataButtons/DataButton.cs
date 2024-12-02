@@ -7,6 +7,8 @@ namespace UIToolkit.CustomControls.DataButtons
         public event System.Action<DataButton> OnSelected = delegate { };
         public event System.Action<DataButton> OnDeselected = delegate { };
         public bool IsSelected { get; private set; }
+        
+        public bool IsEnabled => !ClassListContains("garage-tab--deactivated");
 
         protected DataButton()
         {

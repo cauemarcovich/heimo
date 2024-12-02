@@ -41,6 +41,8 @@ namespace Containers
             {
                 tab.RegisterCallback<ClickEvent>(evt =>
                 {
+                    if (!tab.IsEnabled) return;
+                    
                     DeselectAllTabs();
                     tab.Select();
                 });

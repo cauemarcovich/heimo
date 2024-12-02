@@ -16,9 +16,10 @@ public class ContentContainer
     public VisualElement FilterContainer { get; private set; }
     public VisualElement CardsContainer { get; private set; }
 
+    private Label _title;
+
     //Current Data
     private List<Card> _cards = new List<Card>();
-
 
     private ContentType _currentContentType;
     private RarityData _currentRarity;
@@ -30,6 +31,8 @@ public class ContentContainer
         Container = container;
         FilterContainer = Container.Q("content-filter-container");
         CardsContainer = Container.Q("content-scroll-view").Q("unity-content-container");
+        
+        _title = Container.Q<Label>("content-title");
 
         ConfigFiltersBehaviour();
     }
@@ -39,12 +42,18 @@ public class ContentContainer
         var filters = FilterContainer.Query<FilterButton>().ToList();
         foreach (var filter in filters)
         {
-            filter.Deselect();
-
-            filter.RegisterCallback<ClickEvent>(evt =>
+            filter.OnSelected += _ =>
             {
                 _currentRarity = filter.Rarity;
                 UpdateContent();
+            };
+
+            filter.RegisterCallback<ClickEvent>(evt =>
+            {
+                if (!filter.IsEnabled) return;
+                
+                filters.ForEach(_ => _.Deselect());
+                filter.Select();
             });
         }
     }
@@ -61,6 +70,8 @@ public class ContentContainer
     {
         ClearCardContainer();
 
+        _title.text = _currentContentType.Title.ToUpper();
+        
         var items = _database.GetItemsByType(_currentContentType);
         if (_currentRarity != null)
             items = items.Where(_ => _.Rarity == _currentRarity);

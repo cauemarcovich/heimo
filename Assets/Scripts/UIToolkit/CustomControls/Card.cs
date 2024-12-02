@@ -53,9 +53,6 @@ namespace UIToolkit.CustomControls
         {
             AddToClassList("card");
 
-            _rarityTag = new RarityTag();
-            Add(_rarityTag);
-
             var cardContent = this.CreateChild("card-content", "card-content");
             _contentImage = cardContent.CreateChild("img_item", "card-content__image");
 
@@ -64,6 +61,9 @@ namespace UIToolkit.CustomControls
             _footerButton = _cardFooter.CreateChild<Button>("btn_equip", "card-footer__button");
             _footerButton.text = "EQUIP";
             _footerButton.clickable.clicked += () => IsEquipped = !IsEquipped;
+            
+            _rarityTag = new RarityTag();
+            Add(_rarityTag);
         }
     }
 }

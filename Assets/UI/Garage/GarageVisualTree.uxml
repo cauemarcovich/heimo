@@ -10,20 +10,20 @@
             <UIToolkit.CustomControls.DataButtons.TabButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Color.asset?fileID=11400000&amp;guid=36545a526e0a95540bd8c88a401a355d&amp;type=2#ContentType_Color" name="TabButton" />
             <UIToolkit.CustomControls.DataButtons.TabButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Wheel.asset?fileID=11400000&amp;guid=0db17d6233a1133488cc1142e632404c&amp;type=2#ContentType_Wheel" name="TabButton" />
             <UIToolkit.CustomControls.DataButtons.TabButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Accessory.asset?fileID=11400000&amp;guid=5536cf56f15438541a11924d7f66a094&amp;type=2#ContentType_Accessory" name="TabButton" />
-            <UIToolkit.CustomControls.DataButtons.TabButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Bumper.asset?fileID=11400000&amp;guid=72e5c2e82335bc349b33fe4ac6e3d831&amp;type=2#ContentType_Bumper" name="TabButton" />
+            <UIToolkit.CustomControls.DataButtons.TabButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Bumper.asset?fileID=11400000&amp;guid=72e5c2e82335bc349b33fe4ac6e3d831&amp;type=2#ContentType_Bumper" name="TabButton" class="garage-tab--deactivated" />
             <UIToolkit.CustomControls.DataButtons.TabButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Spoiler.asset?fileID=11400000&amp;guid=0c27c4484c898ae4f908933fe3623a56&amp;type=2#ContentType_Spoiler" name="TabButton" />
         </engine:VisualElement>
         <engine:VisualElement name="showcase-container" class="showcase-container body-container">
             <engine:VisualElement name="car-preview" class="preview" />
             <engine:VisualElement name="preview-type-container" class="preview-type-container" style="padding-bottom: 15px; padding-left: 0; padding-right: 75px;">
                 <UIToolkit.CustomControls.DataButtons.PreviewButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Preview_Kart.asset?fileID=11400000&amp;guid=6ff4302650c4189449e0d1eda19e4afc&amp;type=2#ContentType_Preview_Kart" class="preview-type" />
-                <UIToolkit.CustomControls.DataButtons.PreviewButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Preview_Driver.asset?fileID=11400000&amp;guid=27faa8ffb4e92624aadfdd84fc7c37bf&amp;type=2#ContentType_Preview_Driver" class="preview-type" />
+                <UIToolkit.CustomControls.DataButtons.PreviewButton content-type="project://database/Assets/Data/ContentTypes/ContentType_Preview_Driver.asset?fileID=11400000&amp;guid=27faa8ffb4e92624aadfdd84fc7c37bf&amp;type=2#ContentType_Preview_Driver" class="preview-type garage-tab--deactivated" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="content-container" class="content-container" style="background-color: rgba(0, 0, 0, 0.4);">
             <engine:Label text="SKINS" name="content-title" class="content-container__title" />
             <engine:VisualElement name="content-filter-container" class="content-filter-container" style="margin-left: 45px; margin-right: 45px; margin-top: 28px; flex-basis: 112px; align-items: flex-end; flex-wrap: wrap;">
-                <UIToolkit.CustomControls.DataButtons.FilterButton />
+                <UIToolkit.CustomControls.DataButtons.FilterButton class="content-filter--selected" />
                 <UIToolkit.CustomControls.DataButtons.FilterButton rarity="project://database/Assets/Data/Rarity/Common.asset?fileID=11400000&amp;guid=3503c19dce47c934085e8168e646bbc7&amp;type=2#Common" />
                 <UIToolkit.CustomControls.DataButtons.FilterButton rarity="project://database/Assets/Data/Rarity/Rare.asset?fileID=11400000&amp;guid=a6fc4f016da59c54e9f60c09d35459de&amp;type=2#Rare" />
                 <UIToolkit.CustomControls.DataButtons.FilterButton rarity="project://database/Assets/Data/Rarity/Legendary.asset?fileID=11400000&amp;guid=ef5e226ce34626944bae1615c8e2a5e8&amp;type=2#Legendary" />

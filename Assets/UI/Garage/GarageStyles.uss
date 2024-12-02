@@ -83,6 +83,10 @@
     background-color: rgb(111, 0, 255);
 }
 
+.garage-tab--deactivated {
+    opacity: 0.4;
+}
+
 .showcase-container {
     flex-grow: 0;
     background-color: rgba(236, 161, 161, 0);
@@ -122,16 +126,6 @@
 
 .preview-type > .garage-tab__icon {
     margin: 25px 25px 0 25px;
-}
-
-#preview-type-driver {
-    flex-basis: 150px;
-    width: 150px;
-    height: 150px;
-}
-
-#preview-type-driver > .garage-tab__icon {
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0.4);
 }
 
 .content-container {
