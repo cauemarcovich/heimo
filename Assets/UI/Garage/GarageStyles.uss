@@ -81,15 +81,21 @@
 
 .showcase-container {
     flex-grow: 0;
-    flex-basis: 750px;
     background-color: rgba(236, 161, 161, 0);
+    display: flex;
+    flex-basis: 710px;
 }
 
 .showcase-container .preview {
     flex-grow: 0;
     flex-basis: 800px;
     background-image: url("project://database/Assets/Sprites/Garage/Showcase.png?fileID=2800000&guid=7f5cf40c0e203884cbf8f933b41a0bf0&type=3#Showcase");
-    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-scale-mode: scale-to-fit;
+    margin: 0;
+    background-size: 768px 648px;
+    translate: -35px 25px;
+    width: auto;
+    height: auto;
 }
 
 .preview-type-container {
@@ -104,55 +110,86 @@
 
 .garage-tab.preview-type {
     border-radius: 100px;
-    margin: 0 15px;
-    flex-basis: 175px;
-    width: 175px;
-    height: 175px;
+    margin: 0 10px;
+    flex-basis: 170px;
+    width: 170px;
+    height: 170px;
 }
 
 .preview-type > .garage-tab__icon {
     margin: 25px 25px 0 25px;
 }
 
+#preview-type-driver {
+    flex-basis: 150px;
+    width: 150px;
+    height: 150px;
+}
+
 #preview-type-driver > .garage-tab__icon {
     -unity-background-image-tint-color: rgba(255, 255, 255, 0.4);
 }
 
-#content-container {
-    background-color: rgb(170, 255, 150);
-    padding-top: 0;
-    border-top-width: 10px;
-    border-right-width: 10px;
-    border-bottom-width: 10px;
-    border-left-width: 10px;
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
+.content-container {
+    flex-grow: 0;
     height: auto;
-    flex-grow: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    flex-basis: 800px;
-    margin-right: 75px;
-    margin-left: 75px;
+    flex-basis: 880px;
+    margin: 90px 60px 60px;
+    padding: 0;
+    border-width: 4px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 24px;
+    background-color: rgba(170, 255, 150, 0);
 }
 
-.unity-scroll-view__content-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 100%;
-    font-size: 20px;
+.content-container__title {
+    position: absolute;
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+    font-size: 48px;
     -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    letter-spacing: -8px;
+    background-color: rgb(0, 0, 0);
+    margin: -37px 0 0 40px;
+    padding: 2px 35px;
+    border-radius: 30px;
 }
 
-.car-card {
-    flex-basis: 250px;
-    width: 200px;
-    height: 300px;
+.content-filter-container {
     flex-grow: 0;
-    background-color: rgb(112, 170, 199);
+    padding-top: 0;
+    flex-basis: 85px;
+    background-color: rgba(0, 0, 0, 0);
+    flex-direction: row;
+    align-items: center;
+    margin-left: 50px;
+    margin-top: 55px;
+}
+
+.content-filter-container .unity-button {
+    height: 55px;
+    min-width: 100px;
+    padding: 0 4px;
+    margin: 0 1px;
+    background-color: rgb(137, 137, 137);    
+    border-color: rgb(0, 0, 0);
+    border-width: 4px;
+    border-radius: 25px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    -unity-font-style: bold;
+    letter-spacing: -10px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 2px;
+}
+
+.content-scroll-view {
+    flex-grow: 1;
+    flex-direction: row;
+    flex-basis: auto;
+    padding-bottom: 35px;
+    padding-right: 40px;
+    padding-left: 0;
 }
