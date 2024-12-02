@@ -24,7 +24,7 @@
 }
 
 .title-container > .unity-button {
-    background-image: url("project://database/Assets/Sprites/Garage/Vector/v_back-button.svg?fileID=7388822144124034973&guid=eaebe3c17a21ace489232825b108e257&type=3#v_back-button");
+    background-image: url("project://database/Assets/Sprites/Vectors/v_back-button.svg?fileID=7388822144124034973&guid=eaebe3c17a21ace489232825b108e257&type=3#v_back-button");
     background-color: rgba(188, 188, 188, 0);
     width: 50px;
     height: 50px;
@@ -84,7 +84,7 @@
 }
 
 .home-button {
-    background-image: url("project://database/Assets/Sprites/Garage/Vector/v_home.svg?fileID=7388822144124034973&guid=f3d233e3621975e45a82ba4a93f73a55&type=3#v_home");
+    background-image: url("project://database/Assets/Sprites/Vectors/v_home.svg?fileID=7388822144124034973&guid=f3d233e3621975e45a82ba4a93f73a55&type=3#v_home");
     width: 60px;
     height: 50px;
     border-top-width: 0;

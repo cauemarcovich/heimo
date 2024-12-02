@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266d1fcc50834ea18c7b69436fac5faa, type: 3}
   m_Name: Color_Yellow-Legendary
   m_EditorClassIdentifier: 
+  <ContentType>k__BackingField: {fileID: 11400000, guid: 36545a526e0a95540bd8c88a401a355d, type: 2}
   <Image>k__BackingField: {fileID: 2800000, guid: 78800c4f476572e488de83b6cfc187f7, type: 3}
   <Rarity>k__BackingField: {fileID: 11400000, guid: ef5e226ce34626944bae1615c8e2a5e8, type: 2}

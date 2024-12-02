@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using ScriptableObjects.Data;
+using UnityEditor;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -6,11 +9,28 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "ItemDatabase", menuName = "HeimoData/ItemDatabase")]
     public class ItemDatabase : ScriptableObject
     {
-        [field: SerializeField] public CarData[] Cars { get; private set; }
-        [field: SerializeField] public ColorData[] Colors { get; private set; }
-        [field: SerializeField] public WheelData[] Wheels { get; private set; }
-        [field: SerializeField] public AccessoriesData[] Accessories { get; private set; }
-        [field: SerializeField] public BumperData[] Bumpers { get; private set; }
-        [field: SerializeField] public SpoilerData[] Spoilers { get; private set; }
+        [field: SerializeField] public ItemData[] DataList { get; private set; }
+
+        public IEnumerable<ItemData> GetItemsByType(ContentType contentType)
+        {
+            foreach (var item in DataList)
+                if (item.ContentType == contentType)
+                    yield return item;
+        }
+        
+        [ContextMenu("Capture All Data")]
+        public void CaptureAllData()
+        {
+            DataList = AssetDatabase.FindAssets("t:ItemData")
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Select(AssetDatabase.LoadAssetAtPath<ItemData>)
+                .ToArray();
+        }
+        
+        [ContextMenu("Shuffle")]
+        public void Shuffle()
+        {
+            DataList = DataList.OrderBy(x => Random.value).ToArray();
+        }
     }
 }

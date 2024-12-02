@@ -12,20 +12,66 @@ namespace Editor
     [UnityEditor.CustomEditor(typeof(CrazyPopulator))]
     public class CrazyPopulatorInspector : UnityEditor.Editor
     {
+        private class SerializedPropertyGroup
+        {
+            public string Name { get; set; }
+            public SerializedProperty SpritePath { get; set; }
+            public SerializedProperty DataPath { get; set; }
+            public SerializedProperty ContentType { get; set; }
+
+            public ContentType ContentTypeValue => ContentType.objectReferenceValue as ContentType;
+
+            public bool IsValid { get; private set; }
+
+            public SerializedPropertyGroup(string name, SerializedObject serializedObject)
+            {
+                Name = name;
+                var spritePathPropName = $"{name}SpritesPath";
+                SpritePath = serializedObject.FindProperty(spritePathPropName);
+                DataPath = serializedObject.FindProperty($"{name}DataPath");
+                ContentType = serializedObject.FindProperty($"{name}ContentType");
+                IsValid = true;
+
+                ValidateFields();
+            }
+
+            private void ValidateFields()
+            {
+                if (string.IsNullOrEmpty(Name))
+                {
+                    IsValid = false;
+                    Debug.LogError("Name is not set.");
+                }
+
+                if (SpritePath == null)
+                {
+                    IsValid = false;
+                    Debug.LogError("SpritePath is not set.");
+                }
+
+                if (DataPath == null)
+                {
+                    IsValid = false;
+                    Debug.LogError("DataPath is not set.");
+                }
+
+                if (ContentType == null)
+                {
+                    IsValid = false;
+                    Debug.LogError("ContentType is not set.");
+                }
+            }
+        }
+
         #region properties
 
-        private SerializedProperty _carsSpritePath;
-        private SerializedProperty _carsDataPath;
-        private SerializedProperty _wheelsSpritePath;
-        private SerializedProperty _wheelsDataPath;
-        private SerializedProperty _colorsSpritePath;
-        private SerializedProperty _colorsDataPath;
-        private SerializedProperty _accessoriesSpritePath;
-        private SerializedProperty _accessoriesDataPath;
-        private SerializedProperty _bumpersSpritePath;
-        private SerializedProperty _bumpersDataPath;
-        private SerializedProperty _spoilersSpritePath;
-        private SerializedProperty _spoilersDataPath;
+        private SerializedPropertyGroup _skins;
+        private SerializedPropertyGroup _colors;
+        private SerializedPropertyGroup _wheels;
+        private SerializedPropertyGroup _accessories;
+        private SerializedPropertyGroup _bumpers;
+        private SerializedPropertyGroup _spoilers;
+
         private SerializedProperty _rarityPath;
 
         #endregion
@@ -34,18 +80,12 @@ namespace Editor
         {
             #region properties
 
-            _carsSpritePath = serializedObject.FindProperty("carsSpritesPath");
-            _carsDataPath = serializedObject.FindProperty("carsDataPath");
-            _wheelsSpritePath = serializedObject.FindProperty("wheelsSpritesPath");
-            _wheelsDataPath = serializedObject.FindProperty("wheelsDataPath");
-            _colorsSpritePath = serializedObject.FindProperty("colorsSpritesPath");
-            _colorsDataPath = serializedObject.FindProperty("colorsDataPath");
-            _accessoriesSpritePath = serializedObject.FindProperty("accessoriesSpritesPath");
-            _accessoriesDataPath = serializedObject.FindProperty("accessoriesDataPath");
-            _bumpersSpritePath = serializedObject.FindProperty("bumpersSpritesPath");
-            _bumpersDataPath = serializedObject.FindProperty("bumpersDataPath");
-            _spoilersSpritePath = serializedObject.FindProperty("spoilersSpritesPath");
-            _spoilersDataPath = serializedObject.FindProperty("spoilersDataPath");
+            _skins = new SerializedPropertyGroup("skins", serializedObject);
+            _colors = new SerializedPropertyGroup("colors", serializedObject);
+            _wheels = new SerializedPropertyGroup("wheels", serializedObject);
+            _accessories = new SerializedPropertyGroup("accessories", serializedObject);
+            _bumpers = new SerializedPropertyGroup("bumpers", serializedObject);
+            _spoilers = new SerializedPropertyGroup("spoilers", serializedObject);
             _rarityPath = serializedObject.FindProperty("rarityPath");
 
             #endregion
@@ -53,52 +93,60 @@ namespace Editor
 
         public override void OnInspectorGUI()
         {
+            if (!CheckFields()) return;
+
             if (GUILayout.Button("Populate All"))
             {
-                PopulateAssets<CarData>(_carsSpritePath.stringValue, _carsDataPath.stringValue);
-                PopulateAssets<WheelData>(_wheelsSpritePath.stringValue, _wheelsDataPath.stringValue);
-                PopulateAssets<ColorData>(_colorsSpritePath.stringValue, _colorsDataPath.stringValue);
-                PopulateAssets<AccessoriesData>(_accessoriesSpritePath.stringValue, _accessoriesDataPath.stringValue);
-                PopulateAssets<BumperData>(_bumpersSpritePath.stringValue, _bumpersDataPath.stringValue);
-                PopulateAssets<SpoilerData>(_spoilersSpritePath.stringValue, _spoilersDataPath.stringValue);
+                PopulateAssets<SkinData>(_skins);
+                PopulateAssets<ColorData>(_colors);
+                PopulateAssets<WheelData>(_wheels);
+                PopulateAssets<AccessoriesData>(_accessories);
+                PopulateAssets<BumperData>(_bumpers);
+                PopulateAssets<SpoilerData>(_spoilers);
             }
-            
+
             DrawLine();
             DrawLine();
             DrawLine();
-            
-            BuildArea<CarData>("Cars", _carsSpritePath, _carsDataPath);
-            BuildArea<WheelData>("Wheels", _wheelsSpritePath, _wheelsDataPath);
-            BuildArea<ColorData>("Colors", _colorsSpritePath, _colorsDataPath);
-            BuildArea<AccessoriesData>("Accessories", _accessoriesSpritePath, _accessoriesDataPath);
-            BuildArea<BumperData>("Bumpers", _bumpersSpritePath, _bumpersDataPath);
-            BuildArea<SpoilerData>("Spoilers", _spoilersSpritePath, _spoilersDataPath);
-            
+
+            BuildArea<SkinData>(_skins);
+            BuildArea<ColorData>(_colors);
+            BuildArea<WheelData>(_wheels);
+            BuildArea<AccessoriesData>(_accessories);
+            BuildArea<BumperData>(_bumpers);
+            BuildArea<SpoilerData>(_spoilers);
+
             EditorGUILayout.LabelField("Rarity", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(_rarityPath);
+
+            serializedObject.ApplyModifiedProperties();
         }
 
-        private void BuildArea<T>(string labelName, SerializedProperty spriteProperty, SerializedProperty dataProperty) where T : ItemData
+        public bool CheckFields() => _skins.IsValid && _colors.IsValid && _wheels.IsValid && _accessories.IsValid && _bumpers.IsValid && _spoilers.IsValid;
+
+        private void BuildArea<T>(SerializedPropertyGroup group) where T : ItemData
         {
             CrazyPopulator populator = (CrazyPopulator)target;
-            ValidateFolder(spriteProperty.stringValue);
-            ValidateFolder(dataProperty.stringValue);
 
-            EditorGUILayout.LabelField(labelName, EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(spriteProperty);
-            EditorGUILayout.PropertyField(dataProperty);
+            ValidateFolder(group.SpritePath.stringValue);
+            ValidateFolder(group.DataPath.stringValue);
+
+            EditorGUILayout.LabelField(group.Name, EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(group.SpritePath);
+            EditorGUILayout.PropertyField(group.DataPath);
+            EditorGUILayout.PropertyField(group.ContentType);
 
             if (GUILayout.Button("Populate"))
             {
-                PopulateAssets<T>(spriteProperty.stringValue, dataProperty.stringValue);
+                PopulateAssets<T>(group);
             }
 
             DrawLine();
         }
 
-        private void PopulateAssets<T>(string spritesPath, string dataPath) where T : ItemData
+        private void PopulateAssets<T>(SerializedPropertyGroup group) where T : ItemData
         {
-            var items = AssetDatabase.FindAssets("", new[] { spritesPath })
+            var items = AssetDatabase.FindAssets("", new[] { group.SpritePath.stringValue })
                 .Select(asset => Path.GetFileNameWithoutExtension(AssetDatabase.GUIDToAssetPath(asset)));
 
             var rarityAssets = AssetDatabase.FindAssets("t:RarityData", new[] { "Assets" })
@@ -109,16 +157,16 @@ namespace Editor
             {
                 foreach (var rarityData in rarityAssets)
                 {
-                    var targetName = $"{dataPath}/{item.CapitalizeDataName()}-{rarityData.name}.asset";
+                    var targetName = $"{group.DataPath.stringValue}/{item.CapitalizeDataName()}-{rarityData.name}.asset";
 
                     if (AssetDatabase.LoadAssetAtPath<T>(targetName) == null)
                     {
-                        CreateAsset<T>(targetName, AssetDatabase.LoadAssetAtPath<Texture2D>($"{spritesPath}/{item}.png"), rarityData);
+                        CreateAsset<T>(targetName, AssetDatabase.LoadAssetAtPath<Texture2D>($"{group.SpritePath.stringValue}/{item}.png"), rarityData,
+                            group.ContentTypeValue);
                     }
-                    
                 }
             }
-            
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
@@ -132,11 +180,12 @@ namespace Editor
             }
         }
 
-        T CreateAsset<T>(string path, Texture2D image, RarityData rarity) where T : ItemData
+        T CreateAsset<T>(string path, Texture2D image, RarityData rarity, ContentType contentType) where T : ItemData
         {
             T asset = ScriptableObject.CreateInstance<T>();
             asset.SetImage(image);
             asset.SetRarity(rarity);
+            asset.SetContentType(contentType);
 
             AssetDatabase.CreateAsset(asset, path);
             AssetDatabase.SaveAssets();

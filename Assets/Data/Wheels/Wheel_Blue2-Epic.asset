@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e96f40e919a4e8db6cfc7207c571bf0, type: 3}
   m_Name: Wheel_Blue2-Epic
   m_EditorClassIdentifier: 
+  <ContentType>k__BackingField: {fileID: 11400000, guid: 0db17d6233a1133488cc1142e632404c, type: 2}
   <Image>k__BackingField: {fileID: 2800000, guid: e128e4b91bf8cff46a962648453dbdc2, type: 3}
   <Rarity>k__BackingField: {fileID: 11400000, guid: ea7ffe111072b5943addf15d08d88500, type: 2}

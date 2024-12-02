@@ -128,39 +128,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181863481}
-  - component: {fileID: 181863480}
+  - component: {fileID: 181863482}
   m_Layer: 0
   m_Name: __crazyPopulator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &181863480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181863479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca3caeeeef44944198b97f86162537b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carsSpritesPath: Assets/Sprites/GameItems/Cars
-  carsDataPath: Assets/Data/Cars
-  colorsSpritesPath: Assets/Sprites/GameItems/Colors
-  colorsDataPath: Assets/Data/Colors
-  wheelsSpritesPath: Assets/Sprites/GameItems/Wheels
-  wheelsDataPath: Assets/Data/Wheels
-  accessoriesSpritesPath: Assets/Sprites/GameItems/Accessories
-  accessoriesDataPath: Assets/Data/Accessories
-  bumpersSpritesPath: Assets/Sprites/GameItems/Bumpers
-  bumpersDataPath: Assets/Data/Bumpers
-  spoilersSpritesPath: Assets/Sprites/GameItems/Spoilers
-  spoilersDataPath: Assets/Data/Spoilers
-  rarityPath: Assets/Data_Rarity
+  m_IsActive: 1
 --- !u!4 &181863481
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +151,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181863482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181863479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca3caeeeef44944198b97f86162537b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinsSpritesPath: Assets/Sprites/GameItems/Skins
+  skinsDataPath: Assets/Data/Skins
+  skinsContentType: {fileID: 11400000, guid: ab81dbc0ae9cd8244b55e0bc6e68b38e, type: 2}
+  colorsSpritesPath: Assets/Sprites/GameItems/Colors
+  colorsDataPath: Assets/Data/Colors
+  colorsContentType: {fileID: 11400000, guid: 36545a526e0a95540bd8c88a401a355d, type: 2}
+  wheelsSpritesPath: Assets/Sprites/GameItems/Wheels
+  wheelsDataPath: Assets/Data/Wheels
+  wheelsContentType: {fileID: 11400000, guid: 0db17d6233a1133488cc1142e632404c, type: 2}
+  accessoriesSpritesPath: Assets/Sprites/GameItems/Accessories
+  accessoriesDataPath: Assets/Data/Accessories
+  accessoriesContentType: {fileID: 11400000, guid: 5536cf56f15438541a11924d7f66a094, type: 2}
+  bumpersSpritesPath: Assets/Sprites/GameItems/Bumpers
+  bumpersDataPath: Assets/Data/Bumpers
+  bumpersContentType: {fileID: 11400000, guid: 72e5c2e82335bc349b33fe4ac6e3d831, type: 2}
+  spoilersSpritesPath: Assets/Sprites/GameItems/Spoilers
+  spoilersDataPath: Assets/Data/Spoilers
+  spoilersContentType: {fileID: 11400000, guid: 0c27c4484c898ae4f908933fe3623a56, type: 2}
+  rarityPath: Assets/Data_Rarity
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +501,7 @@ GameObject:
   - component: {fileID: 1914439251}
   - component: {fileID: 1914439250}
   m_Layer: 0
-  m_Name: UI
+  m_Name: ScrollTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,6 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212aea0a93900624b88211fe3176ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: 2690d020ef8ff9f46ab7bc2340f4ddf3, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

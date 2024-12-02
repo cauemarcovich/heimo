@@ -1,6 +1,5 @@
 using Helpers;
-using UIToolkit.CustomControls;
-using UnityEngine;
+using ScriptableObjects.Data;
 using UnityEngine.UIElements;
 
 namespace UIToolkit.CustomControls
@@ -8,25 +7,28 @@ namespace UIToolkit.CustomControls
     [UxmlElement]
     public partial class Card : VisualElement
     {
+        private ItemData _itemData;
         [UxmlAttribute]
-        public string RarityIcon
+        public ItemData ItemData
         {
-            get => _rarityTag?.RarityTitle;
-            set => _rarityTag?.SetRarity(new Rarity(null, value));
-        }
-        
-        [UxmlAttribute]
-        public Texture2D ContentImage
-        {
-            get => _contentImage?.style.backgroundImage.value.texture;
+            get => _itemData;
             set
             {
-                if (_contentImage != null)
-                    _contentImage.style.backgroundImage = new StyleBackground(value);
+                if(_itemData == value) return;
+                _itemData = value;
+                if (_itemData != null)
+                {
+                    _rarityTag.SetRarity(_itemData.Rarity);
+                    _contentImage.style.backgroundImage = new StyleBackground(_itemData.Image);
+                }
+                else
+                {
+                    _rarityTag.SetRarity(null);
+                }
             }
         }
         
-        [UxmlAttribute]
+        private bool _isEquipped;
         public bool IsEquipped
         {
             get => _isEquipped;
@@ -43,12 +45,9 @@ namespace UIToolkit.CustomControls
         }
 
         private RarityTag _rarityTag;
-
         private VisualElement _contentImage;
-
         private VisualElement _cardFooter;
         private Button _footerButton;
-        private bool _isEquipped;
 
         public Card()
         {
@@ -64,6 +63,7 @@ namespace UIToolkit.CustomControls
             _cardFooter.CreateChild<Label>("lbl_equipped", "card-footer__label").text = "EQUIPPED";
             _footerButton = _cardFooter.CreateChild<Button>("btn_equip", "card-footer__button");
             _footerButton.text = "EQUIP";
+            _footerButton.clickable.clicked += () => IsEquipped = !IsEquipped;
         }
     }
 }

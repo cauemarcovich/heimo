@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266d1fcc50834ea18c7b69436fac5faa, type: 3}
   m_Name: Color_BlueSmog-Unique
   m_EditorClassIdentifier: 
+  <ContentType>k__BackingField: {fileID: 11400000, guid: 36545a526e0a95540bd8c88a401a355d, type: 2}
   <Image>k__BackingField: {fileID: 2800000, guid: 22027de300290484ebe9d1af26c5698a, type: 3}
   <Rarity>k__BackingField: {fileID: 11400000, guid: 7587df5f275e79646a5ab3e3c498539f, type: 2}

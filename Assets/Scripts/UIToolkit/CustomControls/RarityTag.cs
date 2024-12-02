@@ -1,5 +1,6 @@
 using System;
 using Helpers;
+using ScriptableObjects;
 using UnityEngine.UIElements;
 
 namespace UIToolkit.CustomControls
@@ -45,29 +46,10 @@ namespace UIToolkit.CustomControls
             _rarityText = this.CreateChild<Label>("lbl-title", "card-rarity-tag__title");
         }
 
-        public void SetRarity(Rarity rarity)
+        public void SetRarity(RarityData rarity)
         {
-            if (rarity == null)
-                throw new ArgumentNullException(nameof(rarity));
-
-            if (_rarityIcon != null)
-                RarityIcon = rarity.Icon;
-            if (_rarityText != null)
-                RarityTitle = rarity.Title;
-        }
-    }
-
-    public class Rarity
-    {
-        public VectorImage Icon { get; set; }
-        public string Title { get; set; }
-
-        public Rarity() { }
-
-        public Rarity(VectorImage icon = null, string title = null)
-        {
-            Icon = icon;
-            Title = title;
+            RarityIcon = rarity != null ? rarity.Icon : null;
+            RarityTitle = rarity != null ? rarity.Title : "";
         }
     }
 }

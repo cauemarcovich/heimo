@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ba9052b67e48c7bcbf277521d1af0a, type: 3}
   m_Name: Spoiler_Blue-Special
   m_EditorClassIdentifier: 
+  <ContentType>k__BackingField: {fileID: 11400000, guid: 0c27c4484c898ae4f908933fe3623a56, type: 2}
   <Image>k__BackingField: {fileID: 2800000, guid: b6b6a66446e320442815574ca3fc6218, type: 3}
   <Rarity>k__BackingField: {fileID: 11400000, guid: 67e6a45fa8705d84bbc85a7ebeb50a9b, type: 2}

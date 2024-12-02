@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266d1fcc50834ea18c7b69436fac5faa, type: 3}
   m_Name: Color_Black-Free
   m_EditorClassIdentifier: 
+  <ContentType>k__BackingField: {fileID: 11400000, guid: 36545a526e0a95540bd8c88a401a355d, type: 2}
   <Image>k__BackingField: {fileID: 2800000, guid: 63ed554e7359351488476f508e6127b9, type: 3}
   <Rarity>k__BackingField: {fileID: 11400000, guid: c1cbadf88c8dfbf469caa570dd73e7c1, type: 2}
