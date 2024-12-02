@@ -1,3 +1,5 @@
+using ScriptableObjects;
+using ScriptableObjects.Data;
 using UnityEngine.UIElements;
 
 namespace Helpers

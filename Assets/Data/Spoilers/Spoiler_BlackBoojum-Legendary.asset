@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ba9052b67e48c7bcbf277521d1af0a, type: 3}
+  m_Name: Spoiler_BlackBoojum-Legendary
+  m_EditorClassIdentifier: 
+  <Image>k__BackingField: {fileID: 2800000, guid: b53d182a035d0364788bd9d3cabc572d, type: 3}
+  <Rarity>k__BackingField: {fileID: 11400000, guid: ef5e226ce34626944bae1615c8e2a5e8, type: 2}
