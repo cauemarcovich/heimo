@@ -1,0 +1,117 @@
+
+.card {
+    flex-basis: 230px;
+    height: 305px;
+    flex-grow: 0;
+    margin: 8px 5px;
+    border-radius: 40px;
+    border-width: 4px;
+    border-color: black;
+    background-color: rgb(1, 230, 141);
+}
+
+.card-rarity-tag {
+    position: absolute;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    margin-top: 24px;
+    padding: 0 0 0 4px;
+    background-color: rgb(0, 0, 0);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.card-rarity-tag__icon {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    display: flex;
+}
+
+.card-rarity-tag__icon--disabled {
+    display: none;
+}
+
+.card-rarity-tag__title {
+    height: 100%;
+    padding-left: 5px;
+    letter-spacing: -10px;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+    font-size: 24px;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+}
+
+.card-content {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Sprites/Garage/Vector/v-card-background.svg?fileID=7388822144124034973&guid=6cccde179dfc7f14c849d8e38a062a36&type=3#v-card-background");
+    -unity-background-scale-mode: stretch-to-fill;
+    flex-basis: 220px;
+    padding: 0;
+    margin: 20px 0 0 0;
+    justify-content: flex-end;
+    align-content: auto;
+}
+
+.card-content__image {
+    flex-grow: 0;
+    width: 223px;
+    height: 244px;
+    align-content: flex-end;
+    justify-content: flex-end;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.card-footer {
+    flex-grow: 0;
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-footer__label {
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 10px 0;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+    font-size: 34px;
+    letter-spacing: -6px;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.card-footer--item-equipped > .card-footer__label {
+    display: flex;
+}
+
+.card-footer__button {
+    width: 130px;
+    height: 50px;
+    margin: 0 0 4px 0;
+    padding: 0 0 4px 2px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    border-radius: 18px;
+    border-width: 2px;
+    -unity-font-style: bold;
+    letter-spacing: -6px;
+    -unity-text-outline-width: 3px;
+    background-color: rgb(234, 148, 5);
+}
+
+.card-footer--item-equipped > .card-footer__button {
+    display: none;
+}
