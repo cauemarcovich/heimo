@@ -18,7 +18,8 @@ namespace UIToolkit.CustomControls
                 _itemData = value;
                 if (_itemData != null)
                 {
-                    _rarityTag.SetRarity(_itemData.Rarity);
+                    _rarityTag.Rarity = _itemData.Rarity;
+                    style.backgroundColor = _itemData.Rarity.BackgroundColor;
                     _contentImage.style.backgroundImage = new StyleBackground(_itemData.Image);
                     
                     if(PlayerData.GetByContentType(ItemData.ContentType) == ItemData)
@@ -26,7 +27,7 @@ namespace UIToolkit.CustomControls
                 }
                 else
                 {
-                    _rarityTag.SetRarity(null);
+                    _rarityTag.Rarity = null;
                 }
             }
         }

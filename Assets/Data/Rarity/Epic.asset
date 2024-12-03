@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Title>k__BackingField: EPIC
   <Icon>k__BackingField: {fileID: 7388822144124034973, guid: 1321d13828d4fdb49b49bfe8bfc83afa, type: 3}
+  <TagColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
+  <BackgroundColor>k__BackingField: {r: 0, g: 0.7725491, b: 1, a: 1}
+  <TextColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}

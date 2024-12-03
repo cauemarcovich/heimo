@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Title>k__BackingField: UNIQUE
   <Icon>k__BackingField: {fileID: 0}
+  <TagColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
+  <BackgroundColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  <TextColor>k__BackingField: {r: 0.9215687, g: 0.63529414, b: 0.08235294, a: 1}
