@@ -87,6 +87,7 @@ public class ContentContainer
     {
         var card = CardsContainer.CreateChild<Card>($"card_{itemData.name.ToLower()}");
         card.ItemData = itemData;
+        card.OnItemEquipped += HandleItemEquipped;
 
         return card;
     }
@@ -95,5 +96,12 @@ public class ContentContainer
     {
         CardsContainer.Clear();
         _cards.Clear();
+    }
+
+    public void HandleItemEquipped(ItemData itemEquipped)
+    {
+        var cardsOfSameType = _cards.Where(_ => _.ItemData != itemEquipped && _.ItemData.ContentType == itemEquipped.ContentType);
+        foreach (var card in cardsOfSameType)
+            card.UnequipItem();
     }
 }

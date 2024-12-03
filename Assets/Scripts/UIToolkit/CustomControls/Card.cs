@@ -20,6 +20,9 @@ namespace UIToolkit.CustomControls
                 {
                     _rarityTag.SetRarity(_itemData.Rarity);
                     _contentImage.style.backgroundImage = new StyleBackground(_itemData.Image);
+                    
+                    if(PlayerData.GetByContentType(ItemData.ContentType) == ItemData)
+                        _cardFooter.AddToClassList("card-footer--item-equipped");
                 }
                 else
                 {
@@ -28,26 +31,12 @@ namespace UIToolkit.CustomControls
             }
         }
         
-        private bool _isEquipped;
-        public bool IsEquipped
-        {
-            get => _isEquipped;
-            set
-            {
-                if (_cardFooter != null)
-                {
-                    _isEquipped = value;
-                    
-                    if(_isEquipped) _cardFooter.AddToClassList("card-footer--item-equipped");
-                    else _cardFooter.RemoveFromClassList("card-footer--item-equipped");
-                }
-            }
-        }
-
         private RarityTag _rarityTag;
         private VisualElement _contentImage;
         private VisualElement _cardFooter;
         private Button _footerButton;
+
+        public event System.Action<ItemData> OnItemEquipped = delegate { };
 
         public Card()
         {
@@ -60,10 +49,22 @@ namespace UIToolkit.CustomControls
             _cardFooter.CreateChild<Label>("lbl_equipped", "card-footer__label").text = "EQUIPPED";
             _footerButton = _cardFooter.CreateChild<Button>("btn_equip", "card-footer__button");
             _footerButton.text = "EQUIP";
-            _footerButton.clickable.clicked += () => IsEquipped = !IsEquipped;
+            _footerButton.clickable.clicked += EquipItem;
             
             _rarityTag = new RarityTag();
             Add(_rarityTag);
+        }
+
+        public void EquipItem()
+        {
+            _cardFooter.AddToClassList("card-footer--item-equipped");
+            PlayerData.SetData(ItemData);
+            OnItemEquipped(ItemData);
+        }
+
+        public void UnequipItem()
+        {
+            _cardFooter.RemoveFromClassList("card-footer--item-equipped");
         }
     }
 }
