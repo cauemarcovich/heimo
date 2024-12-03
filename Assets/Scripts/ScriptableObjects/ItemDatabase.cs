@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjects.Data;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace ScriptableObjects
 {
@@ -17,7 +19,8 @@ namespace ScriptableObjects
                 if (item.ContentType == contentType)
                     yield return item;
         }
-        
+
+#if UNITY_EDITOR
         [ContextMenu("Capture All Data")]
         public void CaptureAllData()
         {
@@ -26,11 +29,12 @@ namespace ScriptableObjects
                 .Select(AssetDatabase.LoadAssetAtPath<ItemData>)
                 .ToArray();
         }
-        
+
         [ContextMenu("Shuffle")]
         public void Shuffle()
         {
             DataList = DataList.OrderBy(x => Random.value).ToArray();
         }
+#endif
     }
 }
