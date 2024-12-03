@@ -1,19 +1,22 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Header.uss?fileID=7433441132597879392&amp;guid=d836fcdb5f22f9c4685a894dd0923b89&amp;type=3#Header" />
     <engine:VisualElement name="header" class="header">
         <engine:VisualElement name="title-container" class="title-container header-container">
-            <engine:Button text="&#10;" name="btn-back" />
+            <engine:Button text="&#10;" name="btn-back" class="btn--deactivated" />
             <engine:Label text="GARAGE" name="lbl-title" class="title" style="margin-left: 40px; font-size: 60px; letter-spacing: -2px; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(0, 0, 0);" />
         </engine:VisualElement>
         <engine:VisualElement name="resources-container" class="resources-container header-container">
             <engine:VisualElement name="ticket-container" class="header-container ticket-container">
                 <engine:Label text="30" name="lbl-value" />
-                <engine:VisualElement name="img-icon" style="background-image: url(&quot;project://database/Assets/Sprites/Garage/Vector/v-ticket.svg?fileID=7388822144124034973&amp;guid=ebac61624c6e6ec40bbf5a5af16bd43f&amp;type=3#v-ticket&quot;);" />
+                <engine:VisualElement name="img-icon" style="background-image: url(&quot;project://database/Assets/Sprites/Vectors/v-ticket.svg?fileID=7388822144124034973&amp;guid=ebac61624c6e6ec40bbf5a5af16bd43f&amp;type=3#v-ticket&quot;);" />
+                <engine:Button text="+" name="btn-add" class="btn--deactivated" style="position: absolute; background-color: rgb(21, 235, 81); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; top: 0; left: auto; right: 0; bottom: auto; flex-basis: auto; width: 50px; height: 50px; margin-top: 4px; margin-right: 14px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&amp;guid=9e498c684e55e3941ba629cfbe18dadf&amp;type=3#Rajdhani-Bold&quot;); font-size: 48px; color: rgb(20, 117, 47);" />
             </engine:VisualElement>
             <engine:VisualElement name="coins-container" class="header-container coins-container">
                 <engine:Label text="30" name="lbl-value" />
-                <engine:VisualElement name="img-icon" style="background-image: url(&quot;project://database/Assets/Sprites/Garage/Vector/v_golden-coin.svg?fileID=7388822144124034973&amp;guid=f75ec81d1f901eb4c8a0bf29d9ff870d&amp;type=3#v_golden-coin&quot;);" />
+                <engine:VisualElement name="img-icon" style="background-image: url(&quot;project://database/Assets/Sprites/Vectors/v_golden-coin.svg?fileID=7388822144124034973&amp;guid=f75ec81d1f901eb4c8a0bf29d9ff870d&amp;type=3#v_golden-coin&quot;);" />
+                <engine:Button text="+" name="btn-add" class="btn--deactivated" style="position: absolute; background-color: rgb(21, 235, 81); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; top: 0; left: auto; right: 0; bottom: auto; flex-basis: auto; width: 50px; height: 50px; margin-top: 4px; margin-right: 14px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&amp;guid=9e498c684e55e3941ba629cfbe18dadf&amp;type=3#Rajdhani-Bold&quot;); font-size: 48px; color: rgb(20, 117, 47);" />
             </engine:VisualElement>
-            <engine:VisualElement name="home-container" class="header-container home-container">
+            <engine:VisualElement name="home-container" class="header-container home-container btn--deactivated">
                 <engine:Button text="&#10;" name="btn-home" class="home-button" />
             </engine:VisualElement>
         </engine:VisualElement>

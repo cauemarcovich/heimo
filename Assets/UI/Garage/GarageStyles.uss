@@ -79,6 +79,14 @@
     translate: 12px -15px;
 }
 
+.garage-tab--selected {
+    background-color: rgb(111, 0, 255);
+}
+
+.garage-tab--deactivated {
+    opacity: 0.4;
+}
+
 .showcase-container {
     flex-grow: 0;
     background-color: rgba(236, 161, 161, 0);
@@ -120,16 +128,6 @@
     margin: 25px 25px 0 25px;
 }
 
-#preview-type-driver {
-    flex-basis: 150px;
-    width: 150px;
-    height: 150px;
-}
-
-#preview-type-driver > .garage-tab__icon {
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0.4);
-}
-
 .content-container {
     flex-grow: 0;
     height: auto;
@@ -167,15 +165,22 @@
     margin-top: 55px;
 }
 
-.content-filter-container .unity-button {
+.content-filter-container .content-filter {
     height: 55px;
     min-width: 100px;
     padding: 0 4px;
     margin: 0 1px;
-    background-color: rgb(137, 137, 137);    
+    background-color: rgb(137, 137, 137);
     border-color: rgb(0, 0, 0);
     border-width: 4px;
     border-radius: 25px;
+}
+
+.content-filter-container .content-filter--selected {
+    background-color: rgb(111, 0, 255);
+}
+
+.content-filter-container .content-filter__title {
     -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=9e498c684e55e3941ba629cfbe18dadf&type=3#Rajdhani-Bold");
     color: rgb(255, 255, 255);
     font-size: 24px;
@@ -183,6 +188,7 @@
     letter-spacing: -10px;
     -unity-text-outline-color: rgb(0, 0, 0);
     -unity-text-outline-width: 2px;
+    -unity-text-align: middle-center;
 }
 
 .content-scroll-view {

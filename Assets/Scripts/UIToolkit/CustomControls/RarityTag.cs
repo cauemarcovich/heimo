@@ -1,5 +1,7 @@
 using System;
 using Helpers;
+using ScriptableObjects;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UIToolkit.CustomControls
@@ -7,32 +9,40 @@ namespace UIToolkit.CustomControls
     [UxmlElement]
     public partial class RarityTag : VisualElement
     {
+        private RarityData _rarity;
         [UxmlAttribute]
-        public VectorImage RarityIcon
+        public RarityData Rarity
         {
-            get => _rarityIcon?.style.backgroundImage.value.vectorImage;
+            get => _rarity;
             set
             {
-                if (_rarityIcon != null)
+                if(_rarity == value) return;
+                
+                _rarity = value;
+                
+                if(_rarity != null)
                 {
-                    _rarityIcon.style.backgroundImage = new StyleBackground(value);
-                    if (value == null) _rarityIcon.AddToClassList("card-rarity-tag__icon--disabled");
+                    _rarityIcon.style.backgroundImage = new StyleBackground(_rarity.Icon);
+                    if (value.Icon == null) _rarityIcon.AddToClassList("card-rarity-tag__icon--disabled");
                     else _rarityIcon.RemoveFromClassList("card-rarity-tag__icon--disabled");
+                    
+                    _rarityText.text = _rarity.Title;
+                    
+                    style.backgroundColor = _rarity.TagColor;
+                    _rarityText.style.color = _rarity.TextColor;
+                }
+                else
+                {
+                    _rarityIcon.style.backgroundImage = null;
+                    _rarityIcon.AddToClassList("card-rarity-tag__icon--disabled");
+
+                    _rarityText.text = "";
+                    
+                    style.backgroundColor = Color.black;
                 }
             }
         }
-
-        [UxmlAttribute]
-        public string RarityTitle
-        {
-            get => _rarityText != null ? _rarityText.text : "Title is not assigned...";
-            set
-            {
-                if (_rarityText != null)
-                    _rarityText.text = value;
-            }
-        }
-
+        
         private VisualElement _rarityIcon;
         private Label _rarityText;
 
@@ -43,31 +53,6 @@ namespace UIToolkit.CustomControls
 
             _rarityIcon = this.CreateChild("icon", "card-rarity-tag__icon", "card-rarity-tag__icon--disabled");
             _rarityText = this.CreateChild<Label>("lbl-title", "card-rarity-tag__title");
-        }
-
-        public void SetRarity(Rarity rarity)
-        {
-            if (rarity == null)
-                throw new ArgumentNullException(nameof(rarity));
-
-            if (_rarityIcon != null)
-                RarityIcon = rarity.Icon;
-            if (_rarityText != null)
-                RarityTitle = rarity.Title;
-        }
-    }
-
-    public class Rarity
-    {
-        public VectorImage Icon { get; set; }
-        public string Title { get; set; }
-
-        public Rarity() { }
-
-        public Rarity(VectorImage icon = null, string title = null)
-        {
-            Icon = icon;
-            Title = title;
         }
     }
 }

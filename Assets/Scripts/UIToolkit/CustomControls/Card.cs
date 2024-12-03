@@ -1,6 +1,5 @@
 using Helpers;
-using UIToolkit.CustomControls;
-using UnityEngine;
+using ScriptableObjects.Data;
 using UnityEngine.UIElements;
 
 namespace UIToolkit.CustomControls
@@ -8,54 +7,41 @@ namespace UIToolkit.CustomControls
     [UxmlElement]
     public partial class Card : VisualElement
     {
+        private ItemData _itemData;
         [UxmlAttribute]
-        public string RarityIcon
+        public ItemData ItemData
         {
-            get => _rarityTag?.RarityTitle;
-            set => _rarityTag?.SetRarity(new Rarity(null, value));
-        }
-        
-        [UxmlAttribute]
-        public Texture2D ContentImage
-        {
-            get => _contentImage?.style.backgroundImage.value.texture;
+            get => _itemData;
             set
             {
-                if (_contentImage != null)
-                    _contentImage.style.backgroundImage = new StyleBackground(value);
-            }
-        }
-        
-        [UxmlAttribute]
-        public bool IsEquipped
-        {
-            get => _isEquipped;
-            set
-            {
-                if (_cardFooter != null)
+                if(_itemData == value) return;
+                _itemData = value;
+                if (_itemData != null)
                 {
-                    _isEquipped = value;
+                    _rarityTag.Rarity = _itemData.Rarity;
+                    style.backgroundColor = _itemData.Rarity.BackgroundColor;
+                    _contentImage.style.backgroundImage = new StyleBackground(_itemData.Image);
                     
-                    if(_isEquipped) _cardFooter.AddToClassList("card-footer--item-equipped");
-                    else _cardFooter.RemoveFromClassList("card-footer--item-equipped");
+                    if(PlayerData.GetByContentType(ItemData.ContentType) == ItemData)
+                        _cardFooter.AddToClassList("card-footer--item-equipped");
+                }
+                else
+                {
+                    _rarityTag.Rarity = null;
                 }
             }
         }
-
+        
         private RarityTag _rarityTag;
-
         private VisualElement _contentImage;
-
         private VisualElement _cardFooter;
         private Button _footerButton;
-        private bool _isEquipped;
+
+        public event System.Action<ItemData> OnItemEquipped = delegate { };
 
         public Card()
         {
             AddToClassList("card");
-
-            _rarityTag = new RarityTag();
-            Add(_rarityTag);
 
             var cardContent = this.CreateChild("card-content", "card-content");
             _contentImage = cardContent.CreateChild("img_item", "card-content__image");
@@ -64,6 +50,22 @@ namespace UIToolkit.CustomControls
             _cardFooter.CreateChild<Label>("lbl_equipped", "card-footer__label").text = "EQUIPPED";
             _footerButton = _cardFooter.CreateChild<Button>("btn_equip", "card-footer__button");
             _footerButton.text = "EQUIP";
+            _footerButton.clickable.clicked += EquipItem;
+            
+            _rarityTag = new RarityTag();
+            Add(_rarityTag);
+        }
+
+        public void EquipItem()
+        {
+            _cardFooter.AddToClassList("card-footer--item-equipped");
+            PlayerData.SetData(ItemData);
+            OnItemEquipped(ItemData);
+        }
+
+        public void UnequipItem()
+        {
+            _cardFooter.RemoveFromClassList("card-footer--item-equipped");
         }
     }
 }
